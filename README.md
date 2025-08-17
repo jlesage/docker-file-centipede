@@ -69,8 +69,6 @@ docker run -d \
     --name=file-centipede \
     -p 5800:5800 \
     -p 10111:10111 \
-    -p 17654:17654/tcp \
-    -p 17654:17654/udp \
     -v /docker/appdata/file-centipede:/config:rw \
     -v /home/user:/storage:ro \
     -v /home/user/Downloads:/output:rw \
@@ -248,8 +246,6 @@ services:
     ports:
       - "5800:5800"
       - "10111:10111"
-      - "17654:17654/tcp"
-      - "17654:17654/udp"
     volumes:
       - "/docker/appdata/file-centipede:/config:rw"
       - "/home/user:/storage:ro"

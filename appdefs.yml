@@ -94,7 +94,7 @@ container:
         {{ app.friendly_name }}. Your router must forward this port to the
         container.
       mandatory: false
-      include_in_quick_start: true
+      include_in_quick_start: false
       unraid_template:
         title: Incoming BitTorrent Peer Connections Port
         description: >-
@@ -111,7 +111,7 @@ container:
         {{ app.friendly_name }}. Your router must forward this port to the
         container.
       mandatory: false
-      include_in_quick_start: true
+      include_in_quick_start: false
       unraid_template:
         title: Incoming BitTorrent DHT Messages Port
         description: >-
