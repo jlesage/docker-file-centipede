@@ -1,0 +1,126 @@
+---
+
+#
+# Definitions for File Centipede docker container.
+#
+# This file is used as data source to generate README.md and unRAID template files
+# from Jinja2 templates.
+#
+
+app:
+  id: 32
+  name: file-centipede
+  friendly_name: File Centipede
+  gui_type: x11
+  base_os: alpine
+  project:
+    description: |-
+      File centipede is an All-In-One internet file upload/download manager, BitTorrent
+      Client, WebDAV client, FTP client, and SSH client. It is designed to be fast,
+      customizable, and user-friendly. It supports multi-protocols and contains many
+      useful auxiliary tools such as HTTP requester, file merge, and encoders. With the
+      browser integration, you can download audio and videos from websites, even encrypted
+      videos.
+    url: https://filecxx.com
+  unraid:
+    #support_url: https://forums.unraid.net/topic/XXXXXX-support-file-centipede/
+    category: "Downloaders:"
+  documentation:
+    sections:
+      - title: Activation Code
+        level: 2
+        content: |-
+          {{ app.friendly_name }} requires an activation code beginning two days after
+          installation.
+
+          Free trial activation codes are published at
+          https://filecxx.com/en_US/activation_code.html. Each code is valid for a fixed 
+          7-day period on the calendar, and new codes will continue to be provided
+          indefinitely.
+
+          Alternatively, a lifetime license can be purchased with a one-time
+          payment, which removes the need to re-enter codes weekly. Visit
+          https://filecxx.com to buy a license.
+  changelog:
+    - version: 25.08.1
+      date: 2025-08-17
+      changes:
+        - 'Initial release.'
+
+container:
+  storage_permissions: ro
+
+  # Environment variables.
+  environment_variables: []
+
+  # Volumes
+  volumes:
+    - container_path: /output
+      host_path_example: /home/user/Downloads
+      description: >-
+        This is where downloaded files are stored.
+      permissions: rw
+      include_in_quick_start: true
+      unraid_template:
+        title: Output Directory
+        description: >-
+          This is the default output folder for downloaded files.
+        display: advanced-hide
+        required: true
+        mask: false
+
+  # Network ports
+  ports:
+    - number: 10111
+      protocol: tcp
+      description: >-
+        Port for {{ app.friendly_name }} service, used by the web browser
+        extension.
+      mandatory: false
+      include_in_quick_start: true
+      unraid_template:
+        title: Service Port
+        description: >-
+          Port for {{ app.friendly_name }} service, used by the web browser
+          extension.
+        default: 10111
+        display: advanced
+        required: false
+        mask: false
+    - number: 17654
+      protocol: tcp
+      description: >-
+        Port for incoming BitTorrent peer connections. Can be changed from
+        {{ app.friendly_name }}. Your router must forward this port to the
+        container.
+      mandatory: false
+      include_in_quick_start: true
+      unraid_template:
+        title: Incoming BitTorrent Peer Connections Port
+        description: >-
+          Port for incoming BitTorrent peer connections. Your router must
+          forward this port to the container.
+        default: 17654
+        display: advanced
+        required: false
+        mask: false
+    - number: 17654
+      protocol: udp
+      description: >-
+        Port for incoming BitTorrent DHT messages. Can be changed from
+        {{ app.friendly_name }}. Your router must forward this port to the
+        container.
+      mandatory: false
+      include_in_quick_start: true
+      unraid_template:
+        title: Incoming BitTorrent DHT Messages Port
+        description: >-
+          Port for incoming BitTorrent DHT messages. Your router must forward
+          this port to the container.
+        default: 17654
+        display: advanced
+        required: false
+        mask: false
+
+  # Devices
+  devices: []
