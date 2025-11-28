@@ -12,6 +12,8 @@ This is a Docker container for [File Centipede](https://filecxx.com).
 The graphical user interface (GUI) of the application can be accessed through a
 modern web browser, requiring no installation or configuration on the client
 
+> This Docker container is entirely unofficial and not made by the creators of File Centipede.
+
 ---
 
 [![File Centipede logo](https://images.weserv.nl/?url=raw.githubusercontent.com/jlesage/docker-templates/master/jlesage/images/file-centipede-icon.png&w=110)](https://filecxx.com)[![File Centipede](https://images.placeholders.dev/?width=448&height=110&fontFamily=monospace&fontWeight=400&fontSize=52&text=File%20Centipede&bgColor=rgba(0,0,0,0.0)&textColor=rgba(121,121,121,1))](https://filecxx.com)
