@@ -8,7 +8,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 FC_ROOTFS=/tmp/filecentipede-rootfs
 FC_INSTALL_DIR=/opt/filecentipede
 
-function log {
+log() {
     echo ">>> $*"
 }
 
