@@ -1,5 +1,4 @@
 #!/bin/sh
-export HOME=/config
 export XCOMPOSEFILE=/config/.XCompose
 
 # Prevent message about unsupported Qt theme.
