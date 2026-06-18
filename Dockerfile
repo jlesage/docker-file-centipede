@@ -20,7 +20,7 @@ COPY src/filecentipede /build
 RUN /build/build.sh "$FILECENTIPEDE_URL"
 
 # Pull base image.
-FROM jlesage/baseimage-gui:alpine-3.21-v4.12.4
+FROM jlesage/baseimage-gui:alpine-3.21-v4.12.5
 
 ARG FILECENTIPEDE_VERSION
 ARG DOCKER_IMAGE_VERSION
